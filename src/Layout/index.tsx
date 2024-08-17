@@ -9,6 +9,7 @@ import westernUnionIcon from "../assets/images/western_union.svg";
 import masterCardIcon from "../assets/images/master_card.svg";
 import paypalIcon from "../assets/images/paypal.svg";
 import visaIcon from "../assets/images/visa.svg";
+import shoesIcon from "../assets/images/shoes.svg";
 
 const Layout = () => {
   const hotDealsList = [
@@ -238,6 +239,26 @@ const Layout = () => {
           </div>
         </nav>
         <section className="grid grid-cols-3 w-[calc(100% - 270px)] place-content-stretch col-span-3">
+          <div className="w-full h-[332px] text-white p-24 bg-[#40bfff] col-span-3 grid grid-flow-col place-content-center">
+            <div className="grid place-content-center">
+              <div className="grid place-content-between w-[350.92px] h-[184.5px]">
+                <div>
+                  <h2 className="font-poppins font-medium text-3xl text-left">
+                    Adidas Men Running Sneakers
+                  </h2>
+                  <p className="font-poppins font-normal text-sm">
+                    Performance and design. Taken right to the edge.
+                  </p>
+                </div>
+                <span className="font-poppins font-semibold text-xs text-left">
+                  SHOP NOW
+                </span>
+              </div>
+            </div>
+            <div>
+              <img src={shoesIcon} alt="ads image" />
+            </div>
+          </div>
           <div className="bg-red-300">1</div>
           <div className="bg-blue-300">2</div>
           <div className="bg-green-300">3</div>
