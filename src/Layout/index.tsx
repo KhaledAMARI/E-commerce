@@ -259,6 +259,43 @@ const Layout = () => {
               <img src={shoesIcon} alt="ads image" />
             </div>
           </div>
+          <div className="bg-[#F1F3F4] w-full h-[58px] p-2 col-span-3 grid grid-flow-col grid-cols-4 place-content-center">
+            <span className="text-left flex items-center">13 Items</span>
+            <div className="w-[192.15px] h-[38px] text-[#22262A] flex justify-between items-center">
+              <label htmlFor="sort-select">Sort By</label>
+              <select id="sort-select" className="w-[126px] h-9 bg-transparent">
+                <option value="name" selected>
+                  Name
+                </option>
+              </select>
+            </div>
+            <div className="w-[171.84px] h-[38px] text-[#22262A] flex justify-between items-center">
+              <label htmlFor="show-select">Show</label>
+              <select id="show-select" className="w-[126px] h-9 bg-transparent">
+                <option value="show-quantity" selected>
+                  12
+                </option>
+              </select>
+            </div>
+            <div className="flex gap-5 justify-end items-center">
+              <div className="w-[22.11px] h-5 grid grid-flow-col grid-cols-3 grid-rows-3">
+                <div className="w-[4.42px] h-1 bg-[#40BFFF]"></div>
+                <div className="w-[4.42px] h-1 bg-[#40BFFF]"></div>
+                <div className="w-[4.42px] h-1 bg-[#40BFFF]"></div>
+                <div className="w-[4.42px] h-1 bg-[#40BFFF]"></div>
+                <div className="w-[4.42px] h-1 bg-[#40BFFF]"></div>
+                <div className="w-[4.42px] h-1 bg-[#40BFFF]"></div>
+                <div className="w-[4.42px] h-1 bg-[#40BFFF]"></div>
+                <div className="w-[4.42px] h-1 bg-[#40BFFF]"></div>
+                <div className="w-[4.42px] h-1 bg-[#40BFFF]"></div>
+              </div>
+              <div className="grid grid-cols-1 grid-rows-3 h-[65%] place-content-between">
+                <span className="w-[19.89px] h-[2px] bg-[#C1C8CE]"></span>
+                <span className="w-[19.89px] h-[2px] bg-[#C1C8CE]"></span>
+                <span className="w-[19.89px] h-[2px] bg-[#C1C8CE]"></span>
+              </div>
+            </div>
+          </div>
           <div className="bg-red-300">1</div>
           <div className="bg-blue-300">2</div>
           <div className="bg-green-300">3</div>
