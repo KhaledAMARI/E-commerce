@@ -10,6 +10,11 @@ import masterCardIcon from "../assets/images/master_card.svg";
 import paypalIcon from "../assets/images/paypal.svg";
 import visaIcon from "../assets/images/visa.svg";
 import shoesIcon from "../assets/images/shoes.svg";
+import productImg from "../assets/images/product.svg";
+import heartIcon from "../assets/images/hearts.svg";
+import blueCartIcon from "../assets/images/cart_2.png";
+
+import "./style.css";
 
 const Layout = () => {
   const hotDealsList = [
@@ -60,9 +65,44 @@ const Layout = () => {
       quantity: 99,
     },
   ];
+
+  const productList = [
+    {
+      image: productImg,
+      label: "Nike Air Zoom Pegasus 38",
+      priceAfterDiscount: 139.99,
+      originalPrice: 583.29,
+      discount: "24%",
+      rating: 4.5,
+    },
+    {
+      image: productImg,
+      label: "Nike Air Zoom Pegasus 38",
+      priceAfterDiscount: 139.99,
+      originalPrice: 583.29,
+      discount: "24%",
+      rating: 4.5,
+    },
+    {
+      image: productImg,
+      label: "Nike Air Zoom Pegasus 38",
+      priceAfterDiscount: 139.99,
+      originalPrice: 583.29,
+      discount: "24%",
+      rating: 4.5,
+    },
+    {
+      image: productImg,
+      label: "Nike Air Zoom Pegasus 38",
+      priceAfterDiscount: 139.99,
+      originalPrice: 583.29,
+      discount: "24%",
+      rating: 4.5,
+    },
+  ];
   return (
     <main className="min-w-full min-h-full grid grid-rows-3 grid-flow-row bg-white">
-      <nav className="flex justify-between h-[42px] px-10">
+      <nav className="grid grid-cols-2 place-content-center h-[42px] px-10 border-b-2 pb-3 border-b-2-[#FAFAFB]">
         <div className="grid grid-cols-2 w-28">
           <select className=" w-[38.26px] h-6 bg-transparent">
             <option value="ar">AR</option>
@@ -238,8 +278,8 @@ const Layout = () => {
             </button>
           </div>
         </nav>
-        <section className="grid grid-cols-3 w-[calc(100% - 270px)] place-content-stretch col-span-3">
-          <div className="w-full h-[332px] text-white p-24 bg-[#40bfff] col-span-3 grid grid-flow-col place-content-center">
+        <section className="grid w-[calc(100% - 270px)] place-content-stretch col-span-3 gap-6">
+          <div className="w-full h-[332px] text-white p-24 bg-[#40bfff] grid grid-flow-col place-content-center">
             <div className="grid place-content-center">
               <div className="grid place-content-between w-[350.92px] h-[184.5px]">
                 <div>
@@ -259,7 +299,7 @@ const Layout = () => {
               <img src={shoesIcon} alt="ads image" />
             </div>
           </div>
-          <div className="bg-[#F1F3F4] w-full h-[58px] p-2 col-span-3 grid grid-flow-col grid-cols-4 place-content-center">
+          <div className="bg-[#F1F3F4] w-full h-[58px] p-2 grid grid-flow-col grid-cols-4 place-content-center">
             <span className="text-left flex items-center">13 Items</span>
             <div className="w-[192.15px] h-[38px] text-[#22262A] flex justify-between items-center">
               <label htmlFor="sort-select">Sort By</label>
@@ -296,18 +336,135 @@ const Layout = () => {
               </div>
             </div>
           </div>
-          <div className="bg-red-300">1</div>
-          <div className="bg-blue-300">2</div>
-          <div className="bg-green-300">3</div>
-          <div className="bg-red-300">1</div>
-          <div className="bg-blue-300">2</div>
-          <div className="bg-green-300">3</div>{" "}
-          <div className="bg-red-300">1</div>
-          <div className="bg-blue-300">2</div>
-          <div className="bg-green-300">3</div>
+          <div className="grid grid-flow-row grid-cols-3 grid-rows-4 gap-4">
+            {productList.map((product) => {
+              const {
+                image,
+                label,
+                originalPrice,
+                priceAfterDiscount,
+                rating,
+                discount,
+              } = product;
+              return (
+                <div className="shopping-card w-[301px] h-[388px] border border-3 relative cursor-pointer">
+                  <div className="absolute bg-[#FF4858] w-16 h-[33px] grid place-content-center">
+                    <span className="w-[37px] h-[22px] font-normal text-lg text-[#FFFFFF]">
+                      HOT
+                    </span>
+                  </div>
+                  <div className="relative">
+                    <img src={image} alt="product image" />
+                    <div className="w-[278px] h-[219px] bg-[#FFFFFF] absolute top-2 right-2.5 opacity-95 z-10 hide">
+                      <div className="w-[113px] h-[51px] flex justify-center items-center gap-2">
+                        <button
+                          type="button"
+                          onClick={() => console.log("heart clicked!")}
+                          className="border rounded-full bg-white w-[52px] h-[51px] flex justify-center items-center"
+                        >
+                          <img src={heartIcon} alt="heart icon" className="" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => console.log("cart clicked!")}
+                          className="border rounded-full bg-white w-[52px] h-[51px] flex justify-center items-center"
+                        >
+                          <img
+                            src={blueCartIcon}
+                            alt="cart icon"
+                            className=""
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="w-full h-[30%] grid grid-cols-1 grid-rows-3 place-content-center py-2 px-5">
+                    <span className="font-poppins font-bold text-lg w-full h-[27px] text-[#223263] text-nowrap text-center">
+                      {label}
+                    </span>
+
+                    <div className="grid grid-flow-col place-content-center">
+                      <svg
+                        className="w-4 h-4 text-yellow-300 ms-1"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 22 20"
+                      >
+                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                      </svg>
+                      <svg
+                        className="w-4 h-4 text-yellow-300 ms-1"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 22 20"
+                      >
+                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                      </svg>
+                      <svg
+                        className="w-4 h-4 text-yellow-300 ms-1"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 22 20"
+                      >
+                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                      </svg>
+                      <svg
+                        className="w-4 h-4 text-yellow-300 ms-1"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 22 20"
+                      >
+                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                      </svg>
+                      <svg
+                        className="w-4 h-4 ms-1 text-gray-300 dark:text-gray-500"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 22 20"
+                      >
+                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                      </svg>
+                    </div>
+                    <div className="w-full h-8 grid grid-flow-col gap-1">
+                      <span className="w-full h-8 font-poppins font-bold text-lg text-[#40BFFF]">
+                        ${priceAfterDiscount}
+                      </span>
+                      <div className="w-[122px] h-[15px] text-nowrap grid grid-flow-col gap-1 place-content-center">
+                        <span className="w-[57px] h-[21px] font-poppins font-normal text-sm text-[#9098B1] line-through">
+                          ${originalPrice}
+                        </span>
+                        <span className="w-[57px] h-[21px] font-poppins font-bold text-sm text-[#FB7181]">{`${discount}% Off`}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <div className="w-full h-14 bg-[#fafafb] rounded-md">
+            <ul className="w-full h-full flex justify-center">
+              {Array.from({ length: 5 }, (_, i) => i + 1).map((pageNumber) => (
+                <li
+                  key={pageNumber}
+                  className={`h-full w-[62.92px] grid place-content-center rounded-md ${
+                    pageNumber === 1 ? "bg-[#40BFFF]" : ""
+                  }`}
+                >
+                  <span className="w-[7.86px] h-[22px] font-normal text-lg text-[#22262A]">
+                    {pageNumber}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </section>
       </div>
-      <footer className="w-full h-[680.59px] bg-[#bcddfe] p-36 grid grid-cols-4">
+      <footer className="w-full h-[680.59px] bg-[#bcddfe] p-36 grid grid-cols-4 mt-40">
         <div className="w-[221.1px] h-[123px] grid gap-3 col-span-2">
           <div className="grid grid-flow-col place-items-center w-[134.32px] h-11">
             <img src={logo} alt="logo" className="w-[39px] h-[39px]" />

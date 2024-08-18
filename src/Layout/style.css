@@ -1,0 +1,16 @@
+.hide {
+    display: none;
+}
+
+.shopping-card:hover {
+    .hide {
+        display: grid;
+        place-content: center;
+    }
+}
+
+.shopping-card:blur {
+    .hide {
+        display: none;
+    }
+}
