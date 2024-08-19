@@ -11,11 +11,10 @@ import Header from "../components/Header";
 const Layout = () => {
   const url = useLocation();
   const { pathname } = url;
-  const pathArray = pathname.split("/");
-  const [isCorrectUrl, _] = useState(
-    pathArray.includes("home") || pathArray.includes("cart")
+  const [isCorrectUrl, setIsCorrectUrl] = useState(
+    pathname === "/" || pathname === "/home" || pathname === "/cart"
   );
-  console.log("🚀 ~ Layout ~ pathname:", pathname);
+
   return (
     <main className="min-w-full min-h-full grid grid-rows-3 grid-flow-row bg-white gap-0">
       {isCorrectUrl && <Header />}
