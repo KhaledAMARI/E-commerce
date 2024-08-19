@@ -13,6 +13,8 @@ export const productListSlice = createSlice({
       originalPrice: 583.29,
       discount: "24%",
       rating: 4.5,
+      quantity: 1,
+      totalPrice: 139.99
     },
     {
       id: "2",
@@ -22,6 +24,8 @@ export const productListSlice = createSlice({
       originalPrice: 583.29,
       discount: "24%",
       rating: 4.5,
+      quantity: 1,
+      totalPrice: 139.99
     },
     {
       id: "3",
@@ -31,6 +35,8 @@ export const productListSlice = createSlice({
       originalPrice: 583.29,
       discount: "24%",
       rating: 4.5,
+      quantity: 1,
+      totalPrice: 139.99
     },
     {
       id: "4",
@@ -40,6 +46,8 @@ export const productListSlice = createSlice({
       originalPrice: 583.29,
       discount: "24%",
       rating: 4.5,
+      quantity: 1,
+      totalPrice: 139.99
     },
   ],
   reducers: {
