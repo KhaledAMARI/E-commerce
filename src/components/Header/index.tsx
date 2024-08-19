@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 import profileIcon from "../../assets/images/profile_close_2.svg";
 import cartIcon from "../../assets/images/cart_icon.svg";
@@ -27,27 +28,28 @@ const Header = () => {
             <option value="eur">EUR</option>
           </select>
         </div>
-        <div className="grid grid-cols-4 gap-1">
-          <div className="grid place-items-center grid-flow-col place-content-center w-[113.53px] h-6 gap-1">
-            <img src={profileIcon} alt="profile icon" />
-            <button
-              type="button"
-              className="h-full w-[87px] font-normal text-xl text-nowrap"
-            >
-              My profile
-            </button>
-          </div>
-          <button
-            type="button"
-            className="relative grid place-items-center w-[75px]"
+        <ul className="grid grid-cols-4 gap-1">
+          <li
+            className="grid place-items-center grid-flow-col place-content-center
+          w-[113.53px] h-6 gap-1 cursor-pointer"
           >
-            <img src={cartIcon} alt="cart icon" />
-            <span className="bg-[#FB7181] text-white w-5 h-5 border-2 px-2 py-1 rounded-full absolute bottom-3 right-4 grid place-content-center">
-              2
+            <img src={profileIcon} alt="profile icon" />
+            <span className="h-full w-[87px] font-normal text-xl text-nowrap">
+              My profile
             </span>
-          </button>
-          <button type="button">Items</button>
-          <div className="grid grid-flow-col-dense gap-1 w-[76px]">
+          </li>
+          <li className="relative grid place-items-center w-[75px]">
+            <NavLink to="/cart">
+              <img src={cartIcon} alt="cart icon" />
+              <span className="bg-[#FB7181] text-white w-5 h-5 border-2 px-2 py-1 rounded-full absolute bottom-3 right-4 grid place-content-center">
+                2
+              </span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="">Items</NavLink>
+          </li>
+          <li className="grid grid-flow-col-dense gap-1 w-[76px]">
             <input
               type="text"
               className="w-[52px] h-6"
@@ -58,46 +60,34 @@ const Header = () => {
               alt="search icon"
               className="w-[20.95px] h-[20.94px]"
             />
-          </div>
-        </div>
+          </li>
+        </ul>
       </nav>
-      <nav className="grid grid-cols-2 grid-flow-col place-content-center h-11  p-11">
-        <div className="grid grid-flow-col place-items-center w-[134.32px] h-11">
+      <nav className="grid grid-cols-2 grid-flow-col place-content-center h-11 p-11">
+        <NavLink
+          to="/home"
+          className="grid grid-flow-col place-items-center w-[134.32px] h-11"
+        >
           <img src={logo} alt="logo" className="w-11 h-11" />
           <span className="w-[84px] h-[27px] font-bold text-lg]">E-Comm</span>
-        </div>
-        <div className="w-[815.49px] h-9 grid grid-flow-col gap-2">
-          <button
-            type="button"
-            className="text-[#33A0FF] w-[70px] h-9 font-medium text-2xl font-poppins"
-          >
-            HOME
-          </button>
-          <button
-            type="button"
-            className="w-[70px] h-9 font-medium text-2xl font-poppins"
-          >
+        </NavLink>
+        <ul className="w-[815.49px] h-9 grid grid-flow-col gap-2">
+          <li className="text-[#33A0FF] w-[70px] h-9 font-medium text-2xl font-poppins">
+            <NavLink to="/home">HOME</NavLink>
+          </li>
+          <li className="w-[70px] h-9 font-medium text-2xl font-poppins cursor-pointer">
             BAGS
-          </button>
-          <button
-            type="button"
-            className="w-[70px] h-9 font-medium text-2xl font-poppins"
-          >
+          </li>
+          <li className="w-[70px] h-9 font-medium text-2xl font-poppins cursor-pointer">
             SNEAKERS
-          </button>
-          <button
-            type="button"
-            className="w-[70px] h-9 font-medium text-2xl font-poppins"
-          >
+          </li>
+          <li className="w-[70px] h-9 font-medium text-2xl font-poppins cursor-pointer">
             BELT
-          </button>
-          <button
-            type="button"
-            className="w-[70px] h-9 font-medium text-2xl font-poppins"
-          >
+          </li>
+          <li className="w-[70px] h-9 font-medium text-2xl font-poppins cursor-pointer">
             CONTACT
-          </button>
-        </div>
+          </li>
+        </ul>
       </nav>
     </>
   );
