@@ -71,7 +71,7 @@ const Header = () => {
           <img src={logo} alt="logo" className="w-11 h-11" />
           <span className="w-[84px] h-[27px] font-bold text-lg]">E-Comm</span>
         </NavLink>
-        <ul className="w-[815.49px] h-9 grid grid-flow-col gap-2">
+        <ul className="h-9 grid grid-flow-col gap-2">
           <li className="text-[#33A0FF] w-[70px] h-9 font-medium text-2xl font-poppins">
             <NavLink to="/home">HOME</NavLink>
           </li>
