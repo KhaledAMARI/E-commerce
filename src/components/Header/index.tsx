@@ -5,8 +5,11 @@ import profileIcon from "../../assets/images/profile_close_2.svg";
 import cartIcon from "../../assets/images/cart_icon.svg";
 import searchIcon from "../../assets/images/search_icon.svg";
 import logo from "../../assets/images/logo.svg";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const cart = useSelector((state) => state.cart);
+
   return (
     <>
       <nav className="grid grid-cols-2 place-content-center h-[42px] px-10 border-b-2 pb-3 border-b-2-[#FAFAFB]">
@@ -41,9 +44,11 @@ const Header = () => {
           <li className="relative grid place-items-center w-[75px]">
             <NavLink to="/cart">
               <img src={cartIcon} alt="cart icon" />
-              <span className="bg-[#FB7181] text-white w-5 h-5 border-2 px-2 py-1 rounded-full absolute bottom-3 right-4 grid place-content-center">
-                2
-              </span>
+              {cart.length > 0 && (
+                <span className="bg-[#FB7181] text-white w-5 h-5 border-2 px-2 py-1 rounded-full absolute bottom-3 right-4 grid place-content-center">
+                  {cart.length}
+                </span>
+              )}
             </NavLink>
           </li>
           <li>

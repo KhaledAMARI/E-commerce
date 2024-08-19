@@ -1,29 +1,38 @@
 import React, { useState } from "react";
 
-import productImg from "../../assets/images/product.svg";
+// import productImg from "../../assets/images/product.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { removeProduct } from "../../Features/Cart/CartSlice";
 
 const Cart = () => {
   const [quantity, setQuantity] = useState(1);
-  const cartList = [
-    {
-      id: "1",
-      image: productImg,
-      label: "Nike Air Zoom Pegasus 38",
-      priceAfterDiscount: 139.99,
-      originalPrice: 583.29,
-      discount: "24%",
-      rating: 4.5,
-    },
-    {
-      id: "2",
-      image: productImg,
-      label: "Nike Air Zoom Pegasus 38",
-      priceAfterDiscount: 139.99,
-      originalPrice: 583.29,
-      discount: "24%",
-      rating: 4.5,
-    },
-  ];
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
+  const deleteItem = (itemId) => {
+    console.log("🚀 ~ deleteItem ~ itemId:", itemId);
+    dispatch(removeProduct(itemId));
+  };
+  // const cartList = [
+  //   {
+  //     id: "1",
+  //     image: productImg,
+  //     label: "Nike Air Zoom Pegasus 38",
+  //     priceAfterDiscount: 139.99,
+  //     originalPrice: 583.29,
+  //     discount: "24%",
+  //     rating: 4.5,
+  //   },
+  //   {
+  //     id: "2",
+  //     image: productImg,
+  //     label: "Nike Air Zoom Pegasus 38",
+  //     priceAfterDiscount: 139.99,
+  //     originalPrice: 583.29,
+  //     discount: "24%",
+  //     rating: 4.5,
+  //   },
+  // ];
   return (
     <>
       <div className="w-full h-[51px] bg-[#fafafb] grid place-content-center">
@@ -57,14 +66,19 @@ const Cart = () => {
           <span className="col-span-1 w-[101.99px] h-[30px] font-poppins font-medium text-xl text-[#22262A] text-nowrap">
             UNIT PRICE
           </span>
-          {cartList.map((item) => {
+          {cart.map((item) => {
+            console.log("🚀 ~ {cart.map ~ item:", item);
             const { id, image, label, priceAfterDiscount } = item;
             return (
-              <>
+              <React.Fragment key={id}>
                 <div className="col-span-1 rounded-full bg-[#fff7f8] w-[23.62px] h-[22px] grid place-content-center">
-                  <span className="text-[#FF4252] w-[9.11px] h-[8.49px] flex justify-center items-center">
+                  <button
+                    type="button"
+                    onClick={() => deleteItem(id)}
+                    className="text-[#FF4252] w-[9.11px] h-[8.49px] flex justify-center items-center"
+                  >
                     x
-                  </span>
+                  </button>
                 </div>
                 <div className="col-span-2 gap-5 w-[343.36px] h-full font-poppins font-medium text-xl text-[#22262A] text-nowrap grid grid-flow-col place-content-center">
                   <img
@@ -97,7 +111,7 @@ const Cart = () => {
                 <span className="col-span-1 w-[101.99px] h-[30px] font-poppins font-medium text-xl text-[#22262A] text-nowrap">
                   ${quantity * priceAfterDiscount}
                 </span>
-              </>
+              </React.Fragment>
             );
           })}
         </div>

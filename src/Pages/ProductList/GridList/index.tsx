@@ -1,11 +1,14 @@
 import React from "react";
 
 import shoesIcon from "../../../assets/images/shoes.svg";
-import productImg from "../../../assets/images/product.svg";
 import heartIcon from "../../../assets/images/hearts.svg";
 import blueCartIcon from "../../../assets/images/cart_2.png";
+import { useDispatch, useSelector } from "react-redux";
+import { addProduct } from "../../../Features/Cart/CartSlice";
 
 const GridList = () => {
+  const productList = useSelector((state) => state.productList);
+  const dispatch = useDispatch();
   const hotDealsList = [
     {
       id: "1",
@@ -66,44 +69,49 @@ const GridList = () => {
     },
   ];
 
-  const productList = [
-    {
-      id: "1",
-      image: productImg,
-      label: "Nike Air Zoom Pegasus 38",
-      priceAfterDiscount: 139.99,
-      originalPrice: 583.29,
-      discount: "24%",
-      rating: 4.5,
-    },
-    {
-      id: "2",
-      image: productImg,
-      label: "Nike Air Zoom Pegasus 38",
-      priceAfterDiscount: 139.99,
-      originalPrice: 583.29,
-      discount: "24%",
-      rating: 4.5,
-    },
-    {
-      id: "3",
-      image: productImg,
-      label: "Nike Air Zoom Pegasus 38",
-      priceAfterDiscount: 139.99,
-      originalPrice: 583.29,
-      discount: "24%",
-      rating: 4.5,
-    },
-    {
-      id: "4",
-      image: productImg,
-      label: "Nike Air Zoom Pegasus 38",
-      priceAfterDiscount: 139.99,
-      originalPrice: 583.29,
-      discount: "24%",
-      rating: 4.5,
-    },
-  ];
+  const addProductToCart = (product) => {
+    console.log("🚀 ~ addProductToCart ~ product:", product);
+    dispatch(addProduct(product));
+  };
+
+  // const productList = [
+  //   {
+  //     id: "1",
+  //     image: productImg,
+  //     label: "Nike Air Zoom Pegasus 38",
+  //     priceAfterDiscount: 139.99,
+  //     originalPrice: 583.29,
+  //     discount: "24%",
+  //     rating: 4.5,
+  //   },
+  //   {
+  //     id: "2",
+  //     image: productImg,
+  //     label: "Nike Air Zoom Pegasus 38",
+  //     priceAfterDiscount: 139.99,
+  //     originalPrice: 583.29,
+  //     discount: "24%",
+  //     rating: 4.5,
+  //   },
+  //   {
+  //     id: "3",
+  //     image: productImg,
+  //     label: "Nike Air Zoom Pegasus 38",
+  //     priceAfterDiscount: 139.99,
+  //     originalPrice: 583.29,
+  //     discount: "24%",
+  //     rating: 4.5,
+  //   },
+  //   {
+  //     id: "4",
+  //     image: productImg,
+  //     label: "Nike Air Zoom Pegasus 38",
+  //     priceAfterDiscount: 139.99,
+  //     originalPrice: 583.29,
+  //     discount: "24%",
+  //     rating: 4.5,
+  //   },
+  // ];
   return (
     <>
       <div className="w-full h-[51px] bg-[#fafafb] grid place-content-center">
@@ -282,14 +290,14 @@ const GridList = () => {
                       <div className="w-[113px] h-[51px] flex justify-center items-center gap-2">
                         <button
                           type="button"
-                          onClick={() => console.log("heart clicked!")}
+                          onClick={() => console.log("heart clicked")}
                           className="border rounded-full bg-white w-[52px] h-[51px] flex justify-center items-center"
                         >
                           <img src={heartIcon} alt="heart icon" className="" />
                         </button>
                         <button
                           type="button"
-                          onClick={() => console.log("cart clicked!")}
+                          onClick={() => addProductToCart(product)}
                           className="border rounded-full bg-white w-[52px] h-[51px] flex justify-center items-center"
                         >
                           <img
