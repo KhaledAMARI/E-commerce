@@ -1,9 +1,10 @@
 .hide {
-    display: none;
+    visibility: hidden;
 }
 
 .shopping-card:hover {
     .hide {
+        visibility: visible;
         display: grid;
         place-content: center;
     }
@@ -11,6 +12,6 @@
 
 .shopping-card:blur {
     .hide {
-        display: none;
+        visibility: hidden;
     }
 }

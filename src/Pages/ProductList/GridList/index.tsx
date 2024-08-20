@@ -277,6 +277,7 @@ const GridList = () => {
               return (
                 <div
                   key={id}
+                  data-testid={`card-${id}`}
                   className="shopping-card w-[301px] h-[388px] border border-3 relative cursor-pointer"
                 >
                   <div className="absolute bg-[#FF4858] w-16 h-[33px] grid place-content-center">
@@ -286,7 +287,10 @@ const GridList = () => {
                   </div>
                   <div className="relative">
                     <img src={image} alt="product image" />
-                    <div className="w-[278px] h-[219px] bg-[#FFFFFF] absolute top-2 right-2.5 opacity-95 z-10 hide">
+                    <div
+                      className="w-[278px] h-[219px] bg-[#FFFFFF] absolute top-2 right-2.5 opacity-95 z-10 hide"
+                      data-testid={`card-${id}-actions`}
+                    >
                       <div className="w-[113px] h-[51px] flex justify-center items-center gap-2">
                         <button
                           type="button"
@@ -297,6 +301,7 @@ const GridList = () => {
                         </button>
                         <button
                           type="button"
+                          data-testid={`add-${id}-to-cart`}
                           onClick={() => addProductToCart(product)}
                           className="border rounded-full bg-white w-[52px] h-[51px] flex justify-center items-center"
                         >

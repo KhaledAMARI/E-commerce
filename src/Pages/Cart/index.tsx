@@ -87,51 +87,65 @@ const Cart = () => {
             } = item;
             return (
               <React.Fragment key={id}>
-                <div className="col-span-1 rounded-full bg-[#fff7f8] w-[23.62px] h-[22px] grid place-content-center">
-                  <button
-                    type="button"
-                    onClick={() => deleteItem(id)}
-                    className="text-[#FF4252] w-[9.11px] h-[8.49px] flex justify-center items-center"
-                  >
-                    x
-                  </button>
+                <div className="grid grid-flow-col place-content-center col-span-3 grid-cols-3">
+                  <div className="grid col-span-1 place-content-center">
+                    <div className="col-span-1 rounded-full bg-[#fff7f8] w-[23.62px] h-[22px] grid place-content-center">
+                      <button
+                        type="button"
+                        onClick={() => deleteItem(id)}
+                        className="text-[#FF4252] w-[9.11px] h-[8.49px] flex justify-center items-center"
+                      >
+                        x
+                      </button>
+                    </div>
+                  </div>
+                  <div className="col-span-1 w-fit h-full grid grid-flow-col place-content-center">
+                    <img
+                      src={image}
+                      alt="product key"
+                      className="w-[137.85px] h-[94px]"
+                    />
+                  </div>
+                  <div className="font-poppins font-medium text-xl text-[#22262A] text-nowrap grid col-span-1 place-content-center">
+                    <span>{label}</span>
+                  </div>
                 </div>
-                <div className="col-span-2 gap-5 w-[343.36px] h-full font-poppins font-medium text-xl text-[#22262A] text-nowrap grid grid-flow-col place-content-center">
-                  <img
-                    src={image}
-                    alt="product key"
-                    className="w-[137.85px] h-[94px]"
-                  />
-                  <span>{label}</span>
-                </div>
-                <span className="col-span-1 w-[101.99px] h-[30px] font-poppins font-medium text-xl text-[#22262A] text-nowrap">
-                  ${totalPrice}
-                </span>
-                <div className=" grid grid-flow-col grid-cols-3 place-items-center bg-[#F6F7F8] col-span-1 w-[124.54px] h-[46px]">
-                  <span
-                    onClick={() => decrementQuantity(id)}
-                    className="text-[#33A0FF] w-[8.59px] h-[2px] cursor-pointer flex justify-center items-center"
-                  >
-                    -
-                  </span>
-                  <span className="font-normal text-lg w-[11.82px] h-[22px]">
-                    {quantity}
-                  </span>
-                  <span
-                    onClick={() => incrementQuantity(id)}
-                    className="text-[#33A0FF] w-[8.59px] h-[2px] cursor-pointer flex justify-center items-center"
-                  >
-                    +
+                <div className="grid place-content-center">
+                  <span className="col-span-1 w-[101.99px] h-[30px] font-poppins font-medium text-xl text-[#22262A] text-nowrap">
+                    ${totalPrice}
                   </span>
                 </div>
-                <span className="col-span-1 w-[101.99px] h-[30px] font-poppins font-medium text-xl text-[#22262A] text-nowrap">
-                  ${priceAfterDiscount}
-                </span>
+                <div className="grid place-content-center">
+                  <div className=" grid grid-flow-col grid-cols-3 place-items-center bg-[#F6F7F8] col-span-1 w-[124.54px] h-[46px]">
+                    <span
+                      onClick={() => decrementQuantity(id)}
+                      data-testid={`decrement-product-${id}-quantity`}
+                      className="text-[#33A0FF] w-[8.59px] h-[2px] cursor-pointer flex justify-center items-center"
+                    >
+                      -
+                    </span>
+                    <span className="font-normal text-lg w-[11.82px] h-[22px]">
+                      {quantity}
+                    </span>
+                    <span
+                      onClick={() => incrementQuantity(id)}
+                      data-testid={`increment-product-${id}-quantity`}
+                      className="text-[#33A0FF] w-[8.59px] h-[2px] cursor-pointer flex justify-center items-center"
+                    >
+                      +
+                    </span>
+                  </div>
+                </div>
+                <div className="grid place-content-center">
+                  <span className="col-span-1 w-[101.99px] h-[30px] font-poppins font-medium text-xl text-[#22262A] text-nowrap">
+                    ${priceAfterDiscount}
+                  </span>
+                </div>
               </React.Fragment>
             );
           })}
         </div>
-        <div className="grid grid-flow-col grid-cols-2 col-span-6">
+        <div className="grid grid-flow-col grid-cols-2 col-span-6 mt-5">
           <div className="col-span-2 flex justify-start items-center w-[369px] h-[60px]">
             <input
               type="text"
@@ -167,6 +181,7 @@ const Cart = () => {
             <div className="grid w-full col-span-2 h-[60px]">
               <button
                 type="button"
+                data-testid="checkout-btn"
                 onClick={() => alert("Proceed to checkout")}
                 disabled={!(cart.length > 0)}
                 className={`${
