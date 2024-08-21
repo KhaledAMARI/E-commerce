@@ -124,7 +124,7 @@ const GridList = () => {
         </div>
       </div>
       <div className="w-full h-full grid grid-flow-col gap-3 grid-cols-4">
-        <nav className="w-[270px] h-[1059px] grid grid-flow-row gap-3">
+        <nav className="w-[270px] h-[1059px] grid grid-flow-row gap-3 [@media(max-width:1201px)]:hidden">
           <div className="grid bg-[#F6F7F8] w-[270px] h-[371px] p-3 rounded-sm gap-2">
             <span className="w-[86px] h-[27px] font-poppins font-medium text-lg">
               Hot Deals
@@ -201,28 +201,31 @@ const GridList = () => {
             </button>
           </div>
         </nav>
-        <section className="grid w-[calc(100% - 270px)] place-content-stretch col-span-3 gap-6">
+        <section className="grid w-[calc(100% - 270px)] place-content-stretch col-span-3 gap-6 [@media(max-width:1201px)]:col-span-4">
           <div className="w-full h-[332px] text-white p-24 bg-[#40bfff] grid grid-flow-col place-content-center">
             <div className="grid place-content-center">
               <div className="grid place-content-between w-[350.92px] h-[184.5px]">
                 <div>
-                  <h2 className="font-poppins font-medium text-3xl text-left">
+                  <h2 className="font-poppins font-medium text-left text-lg md:text-xl lg:text-2xl xl:text-3xl">
                     Adidas Men Running Sneakers
                   </h2>
-                  <p className="font-poppins font-normal text-sm">
+                  <p className="font-poppins font-normal text-xs md:text-sm lg:text-md xl:text-lg">
                     Performance and design. Taken right to the edge.
                   </p>
                 </div>
-                <span className="font-poppins font-semibold text-xs text-left">
-                  SHOP NOW
-                </span>
+                <div className="grid gap-2">
+                  <span className="text-xs text-left font-poppins font-semibold">
+                    SHOP NOW
+                  </span>
+                  <span className="w-[37.56px] h-[2.71px] bg-white border" />
+                </div>
               </div>
             </div>
             <div>
               <img src={shoesIcon} alt="ads image" />
             </div>
           </div>
-          <div className="bg-[#F1F3F4] w-full h-[58px] p-2 grid grid-flow-col grid-cols-4 place-content-center">
+          <div className="bg-[#F1F3F4] w-full h-[58px] p-2 flex items-center justify-between">
             <span className="text-left flex items-center">13 Items</span>
             <div className="w-[192.15px] h-[38px] text-[#22262A] flex justify-between items-center">
               <label htmlFor="sort-select">Sort By</label>
@@ -256,7 +259,7 @@ const GridList = () => {
                 <div className="w-[4.42px] h-1 bg-[#40BFFF]"></div>
                 <div className="w-[4.42px] h-1 bg-[#40BFFF]"></div>
               </div>
-              <div className="grid grid-cols-1 grid-rows-3 h-[65%] place-content-between">
+              <div className="grid grid-cols-1 grid-rows-3 h-full gap-1">
                 <span className="w-[19.89px] h-[2px] bg-[#C1C8CE]"></span>
                 <span className="w-[19.89px] h-[2px] bg-[#C1C8CE]"></span>
                 <span className="w-[19.89px] h-[2px] bg-[#C1C8CE]"></span>
@@ -278,17 +281,19 @@ const GridList = () => {
                 <div
                   key={id}
                   data-testid={`card-${id}`}
-                  className="shopping-card w-[301px] h-[388px] border border-3 relative cursor-pointer"
+                  className="shopping-card w-[301px] h-[388px] border border-3 relative cursor-pointer [@media(max-width:1330px)]:col-span-3 [@media(max-width:1330px)]:w-full"
                 >
-                  <div className="absolute bg-[#FF4858] w-16 h-[33px] grid place-content-center">
+                  <div className="absolute bg-[#FF4858] w-16 h-[33px] grid place-content-center z-10">
                     <span className="w-[37px] h-[22px] font-normal text-lg text-[#FFFFFF]">
                       HOT
                     </span>
                   </div>
                   <div className="relative">
-                    <img src={image} alt="product image" />
+                    <div className="w-full grid place-content-center">
+                      <img src={image} alt="product image" />
+                    </div>
                     <div
-                      className="w-[278px] h-[219px] bg-[#FFFFFF] absolute top-2 right-2.5 opacity-95 z-10 hide"
+                      className="w-full h-full bg-[#FFFFFF] absolute top-2 right-2.5 opacity-95 z-10 hide"
                       data-testid={`card-${id}-actions`}
                     >
                       <div className="w-[113px] h-[51px] flex justify-center items-center gap-2">
@@ -366,8 +371,8 @@ const GridList = () => {
                         <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                       </svg>
                     </div>
-                    <div className="w-full h-8 grid grid-flow-col gap-1">
-                      <span className="w-full h-8 font-poppins font-bold text-lg text-[#40BFFF]">
+                    <div className="w-full h-8 flex items-center justify-center gap-1">
+                      <span className="h-8 font-poppins font-bold text-lg text-[#40BFFF]">
                         ${priceAfterDiscount}
                       </span>
                       <div className="w-[122px] h-[15px] text-nowrap grid grid-flow-col gap-1 place-content-center">
