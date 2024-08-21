@@ -10,7 +10,7 @@ import visaIcon from "../../assets/images/visa.svg";
 
 const Footer = () => {
   return (
-    <footer className="w-full h-[680.59px] bg-[#bcddfe] p-36 grid grid-cols-4 mt-40">
+    <footer className="w-full h-max bg-[#bcddfe] p-36 grid grid-cols-4 mt-40 gap-10 [@media(max-width:1178px)]:grid-cols-3 [@media(max-width:734px)]:grid-cols-1 [@media(max-width:734px)]:p-20">
       <div className="w-[221.1px] h-[123px] grid gap-3 col-span-2">
         <div className="grid grid-flow-col place-items-center w-[134.32px] h-11">
           <img src={logo} alt="logo" className="w-[39px] h-[39px]" />
@@ -102,7 +102,7 @@ const Footer = () => {
           <li>Terms & Conditions</li>
         </ul>
       </div>
-      <div className="h-[56.92]  w-[400%] place-content-end border-t-2 border-t-white">
+      <div className="h-[56.92px] w-full place-content-end border-t-2 border-t-white col-span-full">
         <div className="flex justify-end gap-4">
           <img
             src={westernUnionIcon}
