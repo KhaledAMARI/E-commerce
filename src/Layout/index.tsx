@@ -16,7 +16,7 @@ const Layout = () => {
   );
 
   return (
-    <main className="min-w-full min-h-full grid grid-rows-3 grid-flow-row bg-white gap-0">
+    <main className="min-w-full min-h-full grid grid-flow-row bg-white gap-16">
       {isCorrectUrl && <Header />}
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
