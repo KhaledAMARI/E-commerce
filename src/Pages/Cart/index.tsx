@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-// import productImg from "../../assets/images/product.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { removeProduct, updateProduct } from "../../Features/Cart/CartSlice";
 
@@ -12,7 +11,6 @@ const Cart = () => {
   const dispatch = useDispatch();
 
   const deleteItem = (itemId) => {
-    console.log("🚀 ~ deleteItem ~ itemId:", itemId);
     dispatch(removeProduct(itemId));
   };
 
@@ -87,17 +85,15 @@ const Cart = () => {
             } = item;
             return (
               <React.Fragment key={id}>
-                <div className="grid grid-flow-col place-content-center col-span-3 grid-cols-3">
-                  <div className="grid col-span-1 place-content-center">
-                    <div className="col-span-1 rounded-full bg-[#fff7f8] w-[23.62px] h-[22px] grid place-content-center">
-                      <button
-                        type="button"
-                        onClick={() => deleteItem(id)}
-                        className="text-[#FF4252] w-[9.11px] h-[8.49px] flex justify-center items-center"
-                      >
-                        x
-                      </button>
-                    </div>
+                <div className="col-span-3 flex items-center">
+                  <div className="col-span-1 rounded-full bg-[#fff7f8] w-[23.62px] h-[22px] flex items-center justify-center">
+                    <button
+                      type="button"
+                      onClick={() => deleteItem(id)}
+                      className="text-[#FF4252] w-[9.11px] h-[8.49px] flex justify-center items-center"
+                    >
+                      x
+                    </button>
                   </div>
                   <div className="col-span-1 w-fit h-full grid grid-flow-col place-content-center">
                     <img
