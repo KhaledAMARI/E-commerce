@@ -10,3 +10,7 @@ In order to run this project you need to have node installed, an IDE, and a brow
 
 1. open new terminal within the root and run the command `npm install`.
 2. Run `npm run dev`.
+
+# Testing
+1. Run your application using : `npm run dev`.
+2. Run `npm run test`.
